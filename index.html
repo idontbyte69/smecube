@@ -10,7 +10,33 @@
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            box-sizing: border-        function contactForHosting(plan) {
+            alert(`${plan} হোস্টিং প্ল্যান অর্ডারের জন্য আমাদের সাথে যোগাযোগ করুন:\nফোন: +৮৮০ ১৭১১-২২৩৩৪ৄ\nইমেইল: info@smecube.com`);
+        }
+        
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-item a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                    // Close mobile menu after clicking
+                    const navMenu = document.getElementById('navMenu');
+                    navMenu.classList.remove('active');
+                }
+            });
+        });;
         }
         
         body {
@@ -24,6 +50,64 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+        }
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 0 0 0 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            border-left: 3px solid #ed2849;
+            border-bottom: 3px solid #ed2849;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-item a {
+            text-decoration: none;
+            color: #1e293b;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+        
+        .nav-item a:hover {
+            color: #ed2849;
+            background: rgba(237, 40, 73, 0.1);
+        }
+        
+        .nav-item.cta a {
+            background: #ed2849;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+        
+        .nav-item.cta a:hover {
+            background: #c41e3a;
+            color: white;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #ed2849;
+            cursor: pointer;
         }
         
         .header {
@@ -225,6 +309,42 @@
         }
         
         @media (max-width: 768px) {
+            .navbar {
+                position: static;
+                border-radius: 0;
+                border: none;
+                border-bottom: 3px solid #ed2849;
+                padding: 15px 20px;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background: white;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                border-radius: 0 0 0 15px;
+                padding: 20px;
+                width: 200px;
+                gap: 15px;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-item a {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+            
             .service-tabs {
                 flex-direction: column;
                 align-items: center;
@@ -251,6 +371,21 @@
     </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+            <li class="nav-item"><a href="#home">হোম</a></li>
+            <li class="nav-item"><a href="#domain">ডোমেইন</a></li>
+            <li class="nav-item"><a href="#hosting">হোস্টিং</a></li>
+            <li class="nav-item"><a href="#about">আমাদের সম্পর্কে</a></li>
+            <li class="nav-item"><a href="#contact">যোগাযোগ</a></li>
+            <li class="nav-item cta"><a href="#contact">অর্ডার করুন</a></li>
+        </ul>
+    </nav>
+
     <div class="container">
         <div class="header">
             <h1>ডোমেইন হোস্টিং সার্ভিস</h1>
@@ -442,6 +577,30 @@
         function contactForHosting(plan) {
             alert(`${plan} হোস্টিং প্ল্যান অর্ডারের জন্য আমাদের সাথে যোগাযোগ করুন:\nফোন: +৮৮০ ১৭১১-২২৩৩৪৪\nইমেইল: info@smecube.com`);
         }
+        
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-item a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                    // Close mobile menu after clicking
+                    const navMenu = document.getElementById('navMenu');
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
