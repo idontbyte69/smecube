@@ -2,9 +2,6 @@
 
 This repository contains the web application for SME CUBE, featuring services for small and medium enterprises in Bangladesh. The application is built with React and includes pages for domain & hosting, web development, e-commerce solutions, and Facebook marketing.
 
-## Repository Structure Note
-This project is structured with the React application in the `smecube-web` subdirectory of the main repository. All commands should be executed from within this directory.
-
 ## Brand Colors
 - Background: `#f6e3ec`
 - Accent: `#ed2849`
@@ -24,7 +21,7 @@ Clone the repository and install dependencies:
 git clone git@github.com:idontbyte69/smecube.git
 
 # Navigate to the project directory
-cd smecube/smecube-web
+cd smecube
 
 # Install dependencies
 npm install
@@ -57,21 +54,12 @@ npm run preview
 
 ## Git Workflow
 
-### Important: Working with Nested Project Structure
-Since the React application is in the `smecube-web` subdirectory, make sure you're in this directory when running npm commands, but in the root directory when performing git operations.
-
 ### Pulling Latest Changes
 To get the latest changes from the remote repository:
 
 ```bash
-# Navigate to the root directory if you're in the smecube-web subdirectory
-cd ..
-
 # Fetch and merge changes from the remote
 git pull origin main
-
-# Return to the React project directory for development
-cd smecube-web
 ```
 
 If you have local changes you want to temporarily save:
@@ -87,16 +75,13 @@ git stash pop  # Apply your saved changes back
 To push your changes to the remote repository:
 
 ```bash
-# Navigate to the root directory if you're in the smecube-web subdirectory
-cd ..
-
 # Check which files have been changed
 git status
 
 # Add your changes
-git add smecube-web/  # Add all changes in the React app
+git add .  # Add all changes
 # OR
-git add smecube-web/path/to/specific/file  # Add specific files
+git add path/to/specific/file  # Add specific files
 
 # Commit your changes with a meaningful message
 git commit -m "Your descriptive commit message here"
@@ -109,7 +94,7 @@ git push origin main
 For new features or significant changes:
 
 ```bash
-# From the root directory
+# Create and switch to a new branch
 git checkout -b feature/your-feature-name
 
 # Push the new branch to remote
@@ -120,7 +105,7 @@ git push -u origin feature/your-feature-name
 To merge changes from another branch:
 
 ```bash
-# From the root directory
+# Switch to the target branch (e.g., main)
 git checkout main
 git merge feature/your-feature-name
 git push origin main
@@ -129,24 +114,23 @@ git push origin main
 ## Project Structure
 ```
 smecube/
-└── smecube-web/          # React application
-    ├── public/           # Static assets
-    │   └── SME-Cube-logo.png
-    ├── src/
-    │   ├── assets/       # Images, fonts, etc.
-    │   ├── components/   # Reusable components
-    │   │   ├── Header.jsx
-    │   │   └── Footer.jsx
-    │   ├── pages/        # Page components
-    │   │   ├── DomainHosting.jsx
-    │   │   └── WebDevelopment.jsx
-    │   ├── App.jsx       # Main application component
-    │   ├── index.css     # Global styles
-    │   └── main.jsx      # Entry point
-    ├── index.html        # HTML template
-    ├── package.json      # Dependencies and scripts
-    ├── tailwind.config.js # Tailwind CSS configuration
-    └── vite.config.js    # Vite configuration
+├── public/           # Static assets
+│   └── SME-Cube-logo.png
+├── src/
+│   ├── assets/       # Images, fonts, etc.
+│   ├── components/   # Reusable components
+│   │   ├── Header.jsx
+│   │   └── Footer.jsx
+│   ├── pages/        # Page components
+│   │   ├── DomainHosting.jsx
+│   │   └── WebDevelopment.jsx
+│   ├── App.jsx       # Main application component
+│   ├── index.css     # Global styles
+│   └── main.jsx      # Entry point
+├── index.html        # HTML template
+├── package.json      # Dependencies and scripts
+├── tailwind.config.js # Tailwind CSS configuration
+└── vite.config.js    # Vite configuration
 ```
 
 ## Features
@@ -180,7 +164,6 @@ Please follow these guidelines when contributing to this project:
 - Use descriptive commit messages
 - Follow the existing code style
 - Test your changes thoroughly before pushing
-- Remember that the React app is in a subdirectory - run npm commands from smecube-web/ but git commands from the root directory
 
 ## Last Updated
 September 30, 2025
