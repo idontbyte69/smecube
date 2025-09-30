@@ -94,7 +94,7 @@ export default function Header() {
       )}
 
       {/* Subtle pink strip under header like the design */}
-      <div className="h-12 bg-[linear-gradient(180deg,#f6e3ec_0%,#f6d7e1_100%)]" />
+      {/* <div className="h-12 bg-[linear-gradient(180deg,#f6e3ec_0%,#f6d7e1_100%)]" /> */}
     </header>
   )
 }
