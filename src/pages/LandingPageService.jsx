@@ -166,9 +166,12 @@ export default function LandingPageService() {
                 <div className="mb-4">
                   <span className="block text-sm">ডেলিভারি টাইম: {service.deliveryTime}</span>
                 </div>
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <div className="text-xl md:text-2xl font-extrabold text-[var(--brand-accent)] min-w-[100px]">{service.price}</div>
-                  <a href="#contact" className="btn-primary whitespace-nowrap">কোয়োট রিকোয়েস্ট</a>
+                <div className="flex flex-col gap-3">
+                  <div className="text-xl md:text-2xl font-extrabold text-[var(--brand-accent)]">{service.price}</div>
+                  <div className="flex flex-wrap gap-2">
+                    <a href={`/payment?service=${encodeURIComponent(service.title)}&price=${encodeURIComponent(service.price)}`} className="btn-primary whitespace-nowrap flex-1">অর্ডার করুন</a>
+                    <a href="#contact" className="btn-outline whitespace-nowrap flex-1">কোয়োট রিকোয়েস্ট</a>
+                  </div>
                 </div>
               </div>
             ))}
