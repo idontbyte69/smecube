@@ -153,7 +153,7 @@ export default function LandingPageService() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
             {landingPageServices.map((service, i) => (
-              <div key={i} className={`rounded-xl bg-white shadow-soft p-6 border ${service.popular ? 'border-[var(--brand-accent)]' : 'border-slate-100'}`}>
+              <div key={i} className={`rounded-xl bg-white p-6 border-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${service.popular ? 'border-[var(--brand-accent)] shadow-md shadow-[var(--brand-accent)]/10' : 'border-slate-100 shadow-md hover:border-slate-300'}`}>
                 {service.popular && (
                   <div className="text-xs uppercase tracking-wider inline-block mb-3 px-3 py-1 rounded-full bg-[var(--brand-accent)] text-white">জনপ্রিয় সার্ভিস</div>
                 )}
@@ -166,9 +166,9 @@ export default function LandingPageService() {
                 <div className="mb-4">
                   <span className="block text-sm">ডেলিভারি টাইম: {service.deliveryTime}</span>
                 </div>
-                <div className="flex items-center justify-between">
-                  <div className="text-2xl font-extrabold text-[var(--brand-accent)]">{service.price}</div>
-                  <a href="#contact" className="btn-primary">কোয়োট রিকোয়েস্ট</a>
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div className="text-xl md:text-2xl font-extrabold text-[var(--brand-accent)] min-w-[100px]">{service.price}</div>
+                  <a href="#contact" className="btn-primary whitespace-nowrap">কোয়োট রিকোয়েস্ট</a>
                 </div>
               </div>
             ))}
@@ -187,7 +187,7 @@ export default function LandingPageService() {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl shadow-soft p-6 text-center">
+            <div className="bg-white rounded-xl shadow-md hover:shadow-xl p-6 text-center transition-all duration-300 hover:-translate-y-1 cursor-pointer border border-slate-200 hover:border-[var(--brand-accent)]">
               <div className="w-16 h-16 bg-[var(--brand-accent)]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-[var(--brand-accent)]">
                   <path fillRule="evenodd" d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z" clipRule="evenodd" />
@@ -198,7 +198,7 @@ export default function LandingPageService() {
               <p className="text-gray-600">A/B টেস্টিং এবং ডাটা-ড্রিভেন ডিজাইন দ্বারা আপনার সাইটের কনভার্শন রেট বাড়ান।</p>
             </div>
             
-            <div className="bg-white rounded-xl shadow-soft p-6 text-center">
+            <div className="bg-white rounded-xl shadow-md hover:shadow-xl p-6 text-center transition-all duration-300 hover:-translate-y-1 cursor-pointer border border-slate-200 hover:border-[var(--brand-accent)]">
               <div className="w-16 h-16 bg-[var(--brand-accent)]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-[var(--brand-accent)]">
                   <path d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z" />
@@ -208,7 +208,7 @@ export default function LandingPageService() {
               <p className="text-gray-600">এনালিটিক্স ইন্টিগ্রেশন ও হিটম্যাপ দ্বারা ইউজার বিহেভিয়ার মনিটরিং ও পারফরম্যান্স উন্নয়ন।</p>
             </div>
             
-            <div className="bg-white rounded-xl shadow-soft p-6 text-center">
+            <div className="bg-white rounded-xl shadow-md hover:shadow-xl p-6 text-center transition-all duration-300 hover:-translate-y-1 cursor-pointer border border-slate-200 hover:border-[var(--brand-accent)]">
               <div className="w-16 h-16 bg-[var(--brand-accent)]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-[var(--brand-accent)]">
                   <path d="M10.5 18.75a.75.75 0 000 1.5h3a.75.75 0 000-1.5h-3z" />
@@ -219,7 +219,7 @@ export default function LandingPageService() {
               <p className="text-gray-600">মোবাইল, ট্যাবলেট এবং ডেস্কটপে পারফেক্ট ভিউ সহ ক্রস-ব্রাউজার কম্প্যাটিবিলিটি।</p>
             </div>
             
-            <div className="bg-white rounded-xl shadow-soft p-6 text-center">
+            <div className="bg-white rounded-xl shadow-md hover:shadow-xl p-6 text-center transition-all duration-300 hover:-translate-y-1 cursor-pointer border border-slate-200 hover:border-[var(--brand-accent)]">
               <div className="w-16 h-16 bg-[var(--brand-accent)]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-[var(--brand-accent)]">
                   <path d="M5.223 2.25c-.497 0-.974.198-1.325.55l-1.3 1.298A3.75 3.75 0 007.5 9.75c.627.47 1.406.75 2.25.75.844 0 1.624-.28 2.25-.75.626.47 1.406.75 2.25.75.844 0 1.623-.28 2.25-.75a3.75 3.75 0 004.902-5.652l-1.3-1.299a1.875 1.875 0 00-1.325-.549H5.223z" />
@@ -230,7 +230,7 @@ export default function LandingPageService() {
               <p className="text-gray-600">ইউজার ফ্রেন্ডলি ইন্টারফেস সহ এমন ডিজাইন যা ভিজিটরদের কাস্টমারে রূপান্তরিত করে।</p>
             </div>
             
-            <div className="bg-white rounded-xl shadow-soft p-6 text-center">
+            <div className="bg-white rounded-xl shadow-md hover:shadow-xl p-6 text-center transition-all duration-300 hover:-translate-y-1 cursor-pointer border border-slate-200 hover:border-[var(--brand-accent)]">
               <div className="w-16 h-16 bg-[var(--brand-accent)]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-[var(--brand-accent)]">
                   <path fillRule="evenodd" d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.75a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z" clipRule="evenodd" />
@@ -240,7 +240,7 @@ export default function LandingPageService() {
               <p className="text-gray-600">SEO-ফ্রেন্ডলি কোড স্ট্রাকচার ও অপটিমাইজড ইমেজ দ্বারা দ্রুত লোডিং ও বেটার ইউজার এক্সপেরিয়েন্স।</p>
             </div>
             
-            <div className="bg-white rounded-xl shadow-soft p-6 text-center">
+            <div className="bg-white rounded-xl shadow-md hover:shadow-xl p-6 text-center transition-all duration-300 hover:-translate-y-1 cursor-pointer border border-slate-200 hover:border-[var(--brand-accent)]">
               <div className="w-16 h-16 bg-[var(--brand-accent)]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-[var(--brand-accent)]">
                   <path d="M4.5 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM14.25 8.625a3.375 3.375 0 116.75 0 3.375 3.375 0 01-6.75 0zM1.5 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM17.25 19.128l-.001.144a2.25 2.25 0 01-.233.96 10.088 10.088 0 005.06-1.01.75.75 0 00.42-.643 4.875 4.875 0 00-6.957-4.611 8.586 8.586 0 011.71 5.157v.003z" />
@@ -283,11 +283,11 @@ export default function LandingPageService() {
           {/* Portfolio Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {filteredProjects.map((project) => (
-              <div key={project.id} className="bg-white rounded-xl shadow-soft overflow-hidden border border-slate-100">
+              <div key={project.id} className="bg-white rounded-xl shadow-md hover:shadow-xl overflow-hidden border border-slate-100 transition-all duration-300 hover:-translate-y-1 cursor-pointer group">
                 <img 
                   src={project.imageUrl} 
                   alt={project.title} 
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="p-4">
                   <span className="text-xs px-2 py-1 rounded bg-[var(--brand-accent)]/10 text-[var(--brand-accent)]">
@@ -295,8 +295,11 @@ export default function LandingPageService() {
                   </span>
                   <h3 className="text-lg font-bold mt-2">{project.title}</h3>
                   <p className="text-sm text-gray-600 mt-2">{project.description}</p>
-                  <button className="mt-3 text-[var(--brand-accent)] text-sm font-medium hover:underline">
+                  <button className="mt-3 text-[var(--brand-accent)] text-sm font-medium hover:underline inline-flex items-center group-hover:translate-x-1 transition-transform">
                     বিস্তারিত দেখুন
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 ml-1 group-hover:ml-2 transition-all">
+                      <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
+                    </svg>
                   </button>
                 </div>
               </div>
@@ -318,7 +321,7 @@ export default function LandingPageService() {
           <div className="max-w-4xl mx-auto divide-y divide-gray-200">
             {clientQuestions.map((faq, index) => (
               <div key={index} className="py-5">
-                <details className="group">
+                <details className="group hover:bg-white hover:shadow-md transition-all duration-300 p-3 rounded-xl">
                   <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
                     <span className="text-lg font-bold">{faq.question}</span>
                     <span className="transition group-open:rotate-180">
