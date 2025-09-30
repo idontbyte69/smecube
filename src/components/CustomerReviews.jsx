@@ -63,12 +63,12 @@ const ReviewCard = ({ review }) => {
           {review.initial}
         </div>
         <div className="ml-3">
-          <h4 className="font-bold group-hover:text-[var(--brand-accent)] transition-colors duration-300">{review.name}</h4>
-          <p className="text-sm text-slate-600">{review.company}</p>
+          <h4 className="font-bold group-hover:text-[var(--brand-accent)] transition-colors duration-300 font-bangla">{review.name}</h4>
+          <p className="text-sm text-slate-600 font-bangla">{review.company}</p>
         </div>
       </div>
       <StarRating />
-      <p className="text-gray-700 group-hover:text-gray-800 transition-colors duration-300">
+      <p className="text-gray-700 group-hover:text-gray-800 transition-colors duration-300 font-bangla">
         {review.review}
       </p>
     </div>
@@ -79,7 +79,7 @@ export default function CustomerReviews() {
   return (
     <section className="py-10 md:py-12">
       <div className="container-max">
-        <h2 className="text-center text-2xl md:text-3xl font-bold mb-8">
+        <h2 className="text-center text-2xl md:text-3xl font-bold mb-8 font-bangla">
           আমাদের সন্তুষ্ট গ্রাহকদের মতামত
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
