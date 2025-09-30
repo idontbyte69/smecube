@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from 'react'
+import CustomerReviews from '../components/CustomerReviews'
 
 const hostingPlans = [
   {
@@ -92,11 +93,20 @@ const domainPricing = [
 const TLDs = [".com", ".shop", ".biz", ".xyz"];
 
 export default function DomainHosting() {
-  const [query, setQuery] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [results, setResults] = useState([]);
-  const [error, setError] = useState("");
-  const [selectedSection, setSelectedSection] = useState(null);
+const [query, setQuery] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [results, setResults] = useState([])
+  const [error, setError] = useState('')
+  const [selectedSection, setSelectedSection] = useState(null)
+  
+  const domainSectionRef = useRef(null)
+  const hostingSectionRef = useRef(null)
+  
+  const scrollToSection = (sectionRef) => {
+    if (sectionRef && sectionRef.current) {
+      sectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
 
   async function checkRDAP(domain) {
     try {
@@ -134,7 +144,7 @@ export default function DomainHosting() {
   return (
     <div className="">
       {/* Hero */}
-      <section className="bg-[var(--brand-bg)] py-12 md:py-16">
+      <section className="bg-[var(--brand-bg)] py-12 md:py-12">
         <div className="container-max text-center">
           <h1 className="text-3xl md:text-5xl font-extrabold text-[var(--brand-text)]">
             নিচ থেকে সার্ভিস সিলেক্ট করুন — ডোমেইন ও হোস্টিং
@@ -148,15 +158,18 @@ export default function DomainHosting() {
       </section>
 
       {/* Main Selection Options */}
-      <section className="py-10 md:py-16">
+      <section className="py-2 md:py-6">
         <div className="container-max">
           <div className="max-w-2xl mx-auto grid grid-cols-2 gap-6">
-            <button
-              onClick={() =>
-                setSelectedSection(
-                  selectedSection === "domain" ? null : "domain"
-                )
-              }
+
+           <button 
+              onClick={() => {
+                const newSection = selectedSection === 'domain' ? null : 'domain';
+                setSelectedSection(newSection);
+                if (newSection === 'domain') {
+                  setTimeout(() => scrollToSection(domainSectionRef), 100);
+                }
+              }}
               className={`section-toggle-button aspect-square flex flex-col items-center justify-center p-8 rounded-xl text-center transition-all ${
                 selectedSection === "domain"
                   ? "bg-[var(--brand-accent)] text-white shadow-lg scale-105"
@@ -174,12 +187,15 @@ export default function DomainHosting() {
               <h2 className="text-2xl font-bold">ডোমেইন</h2>
             </button>
 
-            <button
-              onClick={() =>
-                setSelectedSection(
-                  selectedSection === "hosting" ? null : "hosting"
-                )
-              }
+
+            <button 
+              onClick={() => {
+                const newSection = selectedSection === 'hosting' ? null : 'hosting';
+                setSelectedSection(newSection);
+                if (newSection === 'hosting') {
+                  setTimeout(() => scrollToSection(hostingSectionRef), 100);
+                }
+              }}
               className={`section-toggle-button aspect-square flex flex-col items-center justify-center p-8 rounded-xl text-center transition-all ${
                 selectedSection === "hosting"
                   ? "bg-[var(--brand-accent)] text-white shadow-lg scale-105"
@@ -206,8 +222,8 @@ export default function DomainHosting() {
       </section>
 
       {/* Conditionally Show Selected Content */}
-      {selectedSection === "hosting" && (
-        <section id="hosting" className="section-fade-in py-10 md:py-12">
+      {selectedSection === 'hosting' && (
+        <section id="hosting" ref={hostingSectionRef} className="section-fade-in py-10 md:py-12">
           <div className="container-max">
             <h2 className="text-center text-3xl md:text-4xl font-bold mb-8">
               হোস্টিং প্যাকেজ
@@ -251,8 +267,8 @@ export default function DomainHosting() {
         </section>
       )}
 
-      {selectedSection === "domain" && (
-        <section id="domain" className="section-fade-in py-10 md:py-12">
+      {selectedSection === 'domain' && (
+        <section id="domain" ref={domainSectionRef} className="section-fade-in py-10 md:py-12">
           <div className="container-max">
             <div className="bg-white rounded-xl shadow-soft p-6 md:p-8">
               <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">
@@ -357,6 +373,7 @@ export default function DomainHosting() {
         </section>
       )}
 
+
       {/* Why smecube Section */}
       <section className="py-10 md:py-12  bg-[var(--brand-bg)]">
         <div className="container-max">
@@ -396,6 +413,9 @@ export default function DomainHosting() {
           </div>
         </div>
       </section>
+
+      <CustomerReviews />
+
 
       {/* CTA */}
       <section className="py-10 md:py-12">
