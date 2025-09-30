@@ -65,6 +65,7 @@ export default function Header() {
                     <NavLink to="/services/domain-hosting" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`} onClick={() => setOpenServices(false)}>ডোমেইন ও হোস্টিং</NavLink>
                     <NavLink to="/services/web-development" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`} onClick={() => setOpenServices(false)}>ওয়েবসাইট ডেভেলপমেন্ট</NavLink>
                     <NavLink to="/services/landing-page" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`} onClick={() => setOpenServices(false)}>ল্যান্ডিং পেজ</NavLink>
+                    <NavLink to="/services/bulk-sms" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`} onClick={() => setOpenServices(false)}>বাল্ক এসএমএস</NavLink>
                     <NavLink to="/services/ecommerce" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`} onClick={() => setOpenServices(false)}>ই-কমার্স সল্যুশন</NavLink>
                     <NavLink to="/services/facebook-marketing" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`} onClick={() => setOpenServices(false)}>ফেসবুক মার্কেটিং</NavLink>
                   </div>
@@ -105,6 +106,7 @@ export default function Header() {
                 <NavLink to="/services/domain-hosting" className="block px-3 py-2 rounded-lg hover:bg-slate-50" onClick={() => setMobileOpen(false)}>ডোমেইন ও হোস্টিং</NavLink>
                 <NavLink to="/services/web-development" className="block px-3 py-2 rounded-lg hover:bg-slate-50" onClick={() => setMobileOpen(false)}>ওয়েবসাইট ডেভেলপমেন্ট</NavLink>
                 <NavLink to="/services/landing-page" className="block px-3 py-2 rounded-lg hover:bg-slate-50" onClick={() => setMobileOpen(false)}>ল্যান্ডিং পেজ</NavLink>
+                <NavLink to="/services/bulk-sms" className="block px-3 py-2 rounded-lg hover:bg-slate-50" onClick={() => setMobileOpen(false)}>বাল্ক এসএমএস</NavLink>
                 <NavLink to="/services/ecommerce" className="block px-3 py-2 rounded-lg hover:bg-slate-50" onClick={() => setMobileOpen(false)}>ই-কমার্স সল্যুশন</NavLink>
                 <NavLink to="/services/facebook-marketing" className="block px-3 py-2 rounded-lg hover:bg-slate-50" onClick={() => setMobileOpen(false)}>ফেসবুক মার্কেটিং</NavLink>
               </div>
