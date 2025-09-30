@@ -61,12 +61,11 @@ export default function Header() {
                   </svg>
                 </button>
                 {openServices && (
-                  <div className="absolute left-0 mt-3 w-64 rounded-xl bg-white shadow-soft border border-slate-100 p-2 z-50">
-                    <NavLink to="/services/domain-hosting" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`} onClick={() => setOpenServices(false)}>ডোমেইন ও হোস্টিং</NavLink>
-                    <NavLink to="/services/web-development" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`} onClick={() => setOpenServices(false)}>ওয়েবসাইট ডেভেলপমেন্ট</NavLink>
-                    <NavLink to="/services/landing-page" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`} onClick={() => setOpenServices(false)}>ল্যান্ডিং পেজ</NavLink>
-                    <NavLink to="/services/ecommerce" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`} onClick={() => setOpenServices(false)}>ই-কমার্স সল্যুশন</NavLink>
-                    <NavLink to="/services/facebook-marketing" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`} onClick={() => setOpenServices(false)}>ফেসবুক মার্কেটিং</NavLink>
+                  <div className="absolute left-0 mt-3 w-64 rounded-xl bg-white shadow-soft border border-slate-100 p-2">
+                    <NavLink to="/services/domain-hosting" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`}>ডোমেইন ও হোস্টিং</NavLink>
+                    <NavLink to="/services/web-development" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`}>ওয়েবসাইট ডেভেলপমেন্ট</NavLink>
+                    <NavLink to="/services/ecommerce" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`}>ই-কমার্স সল্যুশন</NavLink>
+                    <NavLink to="/services/facebook-marketing" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`}>ফেসবুক মার্কেটিং</NavLink>
                   </div>
                 )}
               </li>
