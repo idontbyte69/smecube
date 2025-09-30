@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useRef } from 'react'
 import CustomerReviews from '../components/CustomerReviews'
 
 const hostingPlans = [
@@ -98,6 +98,7 @@ const [query, setQuery] = useState('')
   const [results, setResults] = useState([])
   const [error, setError] = useState('')
   const [selectedSection, setSelectedSection] = useState(null)
+  const [brandName, setBrandName] = useState('yourbrand')
   
   const domainSectionRef = useRef(null)
   const hostingSectionRef = useRef(null)
@@ -127,9 +128,10 @@ const [query, setQuery] = useState('')
     setError("");
     setResults([]);
     if (!base) {
-      setError("দয়া করে ব্র্যান্ড/ডোমেইন নাম লিখুন");
+      setError("দয়া করে ব্র্যান্ড/ডোমেইন নাম লিখুন");
       return;
     }
+    setBrandName(base);
     setLoading(true);
     const domains = TLDs.map((t) => `${base}${t}`);
     const settled = await Promise.all(domains.map((d) => checkRDAP(d)));
@@ -158,7 +160,7 @@ const [query, setQuery] = useState('')
       </section>
 
       {/* Main Selection Options */}
-      <section className="py-2 md:py-6">
+      <section className="py-1 md:py-4">
         <div className="container-max">
           <div className="max-w-2xl mx-auto grid grid-cols-2 gap-6">
 
@@ -170,7 +172,7 @@ const [query, setQuery] = useState('')
                   setTimeout(() => scrollToSection(domainSectionRef), 100);
                 }
               }}
-              className={`section-toggle-button aspect-square flex flex-col items-center justify-center p-8 rounded-xl text-center transition-all ${
+              className={`section-toggle-button flex flex-col items-center justify-center p-8 rounded-xl text-center transition-all ${
                 selectedSection === "domain"
                   ? "bg-[var(--brand-accent)] text-white shadow-lg scale-105"
                   : "bg-white shadow-soft border border-slate-100 hover:border-[var(--brand-accent)]/50"
@@ -180,11 +182,11 @@ const [query, setQuery] = useState('')
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                className="w-16 h-16 mb-4"
+                className="w-12 h-12 mb-2"
               >
-                <path d="M21.721 12.752a9.711 9.711 0 00-.945-5.003 12.754 12.754 0 01-4.339 2.708 18.991 18.991 0 01-.214 4.772 17.165 17.165 0 005.498-2.477zM14.634 15.55a17.324 17.324 0 00.332-4.647c-.952.227-1.945.347-2.966.347-1.021 0-2.014-.12-2.966-.347a17.515 17.515 0 00.332 4.647 17.385 17.385 0 005.268 0zM9.772 17.119a18.963 18.963 0 004.456 0A17.182 17.182 0 0112 21.724a17.18 17.18 0 01-2.228-4.605zM7.777 15.23a18.87 18.87 0 01-.214-4.774 12.753 12.753 0 01-4.34-2.708 9.711 9.711 0 00-.944 5.004 17.165 17.165 0 005.498 2.477zM21.356 14.752a9.765 9.765 0 01-7.478 6.817 18.64 18.64 0 001.988-4.718 18.627 18.627 0 005.49-2.098zM2.644 14.752c1.682.971 3.53 1.688 5.49 2.099a18.64 18.64 0 001.988 4.718 9.765 9.765 0 01-7.478-6.816zM13.878 2.43a9.755 9.755 0 016.116 3.986 11.267 11.267 0 01-3.746 2.504 18.63 18.63 0 00-2.37-6.49zM12 2.276a17.152 17.152 0 012.805 7.121c-.897.23-1.837.353-2.805.353-.968 0-1.908-.122-2.805-.353A17.151 17.151 0 0112 2.276zM10.122 2.43a18.629 18.629 0 00-2.37 6.49 11.266 11.266 0 01-3.746-2.504 9.754 9.754 0 016.116-3.985z" />
+                <path d="M21.721 12.752a9.711 9.711 0 00-.945-5.003 12.754 12.754 0 01-4.339 2.708 18.991 18.991 0 01-.214 4.772 17.165 17.165 0 005.498-2.477zM14.634 15.55a17.324 17.324 0 00.332-4.647c-.952.227-1.945.347-2.966.347-1.021 0-2.014-.12-2.966-.347a17.515 17.515 0 00.332 4.647 17.385 17.385 0 005.268 0zM9.772 17.119a18.963 18.963 0 004.456 0A17.182 17.182 0 0112 21.724a17.18 17.18 0 01-2.228-4.605zM7.777 15.23a18.87 18.87 0 01-.214-4.774 12.753 12.753 0 01-4.34-2.708 9.711 9.711 0 00-.944 5.004 17.165 17.165 0 005.498 2.477zM21.356 14.752a9.765 9.765 0 01-7.478 6.817a18.64 18.64 0 001.988-4.718 18.627 18.627 0 005.49-2.098zM2.644 14.752c1.682.971 3.53 1.688 5.49 2.099a18.64 18.64 0 001.988 4.718 9.765 9.765 0 01-7.478-6.816zM13.878 2.43a9.755 9.755 0 016.116 3.986 11.267 11.267 0 01-3.746 2.504 18.63 18.63 0 00-2.37-6.49zM12 2.276a17.152 17.152 0 012.805 7.121c-.897.23-1.837.353-2.805.353-.968 0-1.908-.122-2.805-.353A17.151 17.151 0 0112 2.276zM10.122 2.43a18.629 18.629 0 00-2.37 6.49 11.266 11.266 0 01-3.746-2.504 9.754 9.754 0 016.116-3.985z" />
               </svg>
-              <h2 className="text-2xl font-bold font-bangla">ডোমেইন</h2>
+              <h2 className="text-lg font-bold font-bangla">ডোমেইন</h2>
             </button>
 
 
@@ -196,7 +198,7 @@ const [query, setQuery] = useState('')
                   setTimeout(() => scrollToSection(hostingSectionRef), 100);
                 }
               }}
-              className={`section-toggle-button aspect-square flex flex-col items-center justify-center p-8 rounded-xl text-center transition-all ${
+              className={`section-toggle-button flex flex-col items-center justify-center p-4 rounded-xl text-center transition-all ${
                 selectedSection === "hosting"
                   ? "bg-[var(--brand-accent)] text-white shadow-lg scale-105"
                   : "bg-white shadow-soft border border-slate-100 hover:border-[var(--brand-accent)]/50"
@@ -206,7 +208,7 @@ const [query, setQuery] = useState('')
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                className="w-16 h-16 mb-4"
+                className="w-12 h-12 mb-2"
               >
                 <path d="M5.507 4.048A3 3 0 017.785 3h8.43a3 3 0 012.278 1.048l1.722 2.008A4.533 4.533 0 0019.5 6h-15c-.243 0-.482.02-.715.056l1.722-2.008z" />
                 <path
@@ -215,7 +217,7 @@ const [query, setQuery] = useState('')
                   clipRule="evenodd"
                 />
               </svg>
-              <h2 className="text-2xl font-bold font-bangla">হোস্টিং</h2>
+              <h2 className="text-lg font-bold font-bangla">হোস্টিং</h2>
             </button>
           </div>
         </div>
@@ -232,7 +234,7 @@ const [query, setQuery] = useState('')
               {hostingPlans.map((p, i) => (
                 <div
                   key={i}
-                  className={`rounded-xl bg-white shadow-soft p-6 border ${
+                  className={`rounded-xl bg-white p-6 border-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
                     p.popular
                       ? "border-[var(--brand-accent)]"
                       : "border-slate-100"
@@ -280,7 +282,14 @@ const [query, setQuery] = useState('')
                     placeholder="আপনার ব্র্যান্ড নাম লিখুন... যেমন: yourbrand"
                     className="flex-1 rounded-lg border border-slate-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--brand-accent)]"
                     value={query}
-                    onChange={(e) => setQuery(e.target.value)}
+                    onChange={(e) => {
+                      setQuery(e.target.value);
+                      if (e.target.value.trim()) {
+                        setBrandName(e.target.value.trim().toLowerCase().replace(/\s+/g, ""));
+                      } else {
+                        setBrandName('yourbrand');
+                      }
+                    }}
                     onKeyDown={(e) => {
                       if (e.key === "Enter") handleSearch();
                     }}
@@ -296,6 +305,9 @@ const [query, setQuery] = useState('')
                 <p className="mt-2 text-sm text-slate-600">
                   যে TLD গুলো আমরা চেক করবো: {TLDs.join(", ")}
                 </p>
+                {/* <p className="mt-1 text-sm text-[var(--brand-accent)]">
+                  আপনার লেখা নাম অটোমেটিক নিচের টেবিলে দেখানো হচ্ছে
+                </p> */}
                 {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
               </div>
 
@@ -312,17 +324,17 @@ const [query, setQuery] = useState('')
                           <span className="font-medium">{r.domain}</span>
                           {r.status === "available" && (
                             <span className="text-xs px-2 py-1 rounded bg-green-100 text-green-700">
-                              উপলব্ধ
+                              Available
                             </span>
                           )}
                           {r.status === "registered" && (
                             <span className="text-xs px-2 py-1 rounded bg-slate-100 text-slate-700">
-                              রেজিস্টার্ড
+                              Registered
                             </span>
                           )}
                           {r.status === "unknown" && (
                             <span className="text-xs px-2 py-1 rounded bg-amber-100 text-amber-800">
-                              অজানা
+                              Unknown
                             </span>
                           )}
                         </div>
@@ -346,27 +358,41 @@ const [query, setQuery] = useState('')
                 </div>
               )}
 
-              <div className="mt-10 overflow-x-auto">
-                <table className="w-full text-left border border-slate-200 rounded-lg overflow-hidden">
-                  <thead className="bg-slate-50">
-                    <tr>
-                      <th className="p-3">ডোমেইন</th>
-                      <th className="p-3">১ বছর</th>
-                      <th className="p-3">২ বছর</th>
-                      <th className="p-3">৩ বছর</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {domainPricing.map((d, i) => (
-                      <tr key={i} className="border-t">
-                        <td className="p-3 font-medium">{d.domain}</td>
-                        <td className="p-3">৳ {d.y1}</td>
-                        <td className="p-3">৳ {d.y2}</td>
-                        <td className="p-3">৳ {d.y3}</td>
+              <div className="mt-10">
+                <h3 className="text-xl font-semibold mb-3 flex items-center">
+                  <span>ডোমেইন প্রাইসিং</span>
+                  {brandName !== 'yourbrand' && (
+                    <span className="ml-3 text-sm px-2 py-1 rounded bg-green-100 text-green-700 font-normal">
+                      "{brandName}" দিয়ে কাস্টমাইজ করা হয়েছে
+                    </span>
+                  )}
+                </h3>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left border border-slate-200 rounded-lg overflow-hidden">
+                    <thead className="bg-slate-50">
+                      <tr>
+                        <th className="p-3">ডোমেইন</th>
+                        <th className="p-3">১ বছর</th>
+                        <th className="p-3">২ বছর</th>
+                        <th className="p-3">৩ বছর</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                      {domainPricing.map((d, i) => (
+                        <tr key={i} className="border-t">
+                          <td className="p-3 font-medium">
+                            <span className={brandName !== 'yourbrand' ? 'transition-all duration-300 bg-yellow-50' : ''}>
+                              {d.domain.replace('yourbrand', brandName)}
+                            </span>
+                          </td>
+                          <td className="p-3">৳ {d.y1}</td>
+                          <td className="p-3">৳ {d.y2}</td>
+                          <td className="p-3">৳ {d.y3}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>

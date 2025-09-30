@@ -3,6 +3,8 @@ import './index.css'
 import DomainHosting from './pages/DomainHosting'
 import WebDevelopment from './pages/WebDevelopment'
 import BulkSMS from './pages/BulkSMS'
+import LandingPageService from './pages/LandingPageService'
+import PaymentForm from './pages/PaymentForm'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import ServiceProviders from './components/ServiceProviders'
@@ -29,8 +31,10 @@ function App() {
             <Route path="/services/domain-hosting" element={<DomainHosting />} />
             <Route path="/services/web-development" element={<WebDevelopment />} />
             <Route path="/services/bulk-sms" element={<BulkSMS />} />
+            <Route path="/services/landing-page" element={<LandingPageService />} />
             <Route path="/services/ecommerce" element={<Placeholder title="ই-কমার্স সল্যুশন" />} />
             <Route path="/services/facebook-marketing" element={<Placeholder title="ফেসবুক মার্কেটিং" />} />
+            <Route path="/payment" element={<PaymentForm />} />
             <Route path="*" element={<Navigate to="/services/domain-hosting" replace />} />
           </Routes>
         </main>
