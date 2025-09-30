@@ -234,7 +234,7 @@ const [query, setQuery] = useState('')
               {hostingPlans.map((p, i) => (
                 <div
                   key={i}
-                  className={`rounded-xl bg-white shadow-soft p-6 border ${
+                  className={`rounded-xl bg-white p-6 border-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
                     p.popular
                       ? "border-[var(--brand-accent)]"
                       : "border-slate-100"
