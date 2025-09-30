@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import CustomerReviews from '../components/CustomerReviews'
 
 const hostingPlans = [
   { title: '১ বছর / 1GB', features: ['ডোমেইন নাম', '৩টি ওয়েবসাইট', '২০ GB SSD', '৩০ মেইলবক্স', 'অটো ব্যাকআপ', 'AI ওয়েবসাইট বিল্ডার', 'AI টুলস'], price: '৳ ১,৫০০/বছর' },
@@ -204,6 +205,8 @@ export default function DomainHosting() {
           </div>
         </section>
       )}
+
+      <CustomerReviews />
 
       {/* CTA */}
       <section className="py-10 md:py-12">
