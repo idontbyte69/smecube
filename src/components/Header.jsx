@@ -1,29 +1,29 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
 export default function Header() {
   const [openServices, setOpenServices] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const dropdownRef = useRef(null)
-  
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setOpenServices(false);
-      }
-    }
-    
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [dropdownRef]);
 
   const navLinkBase = 'hover:opacity-90'
   const activeUnderline = (
     <span className="absolute left-1/2 -translate-x-1/2 -bottom-2 block h-[3px] w-16 rounded bg-[#6fcf97]" />
   )
+  
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setOpenServices(false)
+      }
+    }
+    
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [dropdownRef])
 
   return (
     <header className="sticky top-0 z-50">
@@ -45,38 +45,28 @@ export default function Header() {
                   )}
                 </NavLink>
               </li>
-              <li className="relative group" ref={dropdownRef}>
+              <li className="relative" ref={dropdownRef}>
                 <button 
-                  className="flex items-center gap-1 hover:opacity-90 py-2 px-1"
-                  onMouseEnter={() => setOpenServices(true)}
+                  className="flex items-center gap-1 hover:opacity-90"
                   onClick={() => setOpenServices(!openServices)}
                 >
                   <span>সার্ভিস</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5"><path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.186l3.71-3.955a.75.75 0 111.08 1.04l-4.24 4.52a.75.75 0 01-1.08 0l-4.24-4.52a.75.75 0 01.02-1.06z" clipRule="evenodd" /></svg>
-                </button>
-                {/* Invisible bridge element to ensure smooth hover transition */}
-                <div 
-                  className="absolute left-0 right-0 h-4 -bottom-4" 
-                  onMouseEnter={() => setOpenServices(true)}
-                ></div>
-                {openServices && (
-                  <div 
-                    className="absolute left-0 top-full pt-4 w-64 z-20"
-                    onMouseEnter={() => setOpenServices(true)} 
-                    onMouseLeave={() => {
-                      const timer = setTimeout(() => {
-                        setOpenServices(false);
-                      }, 100);
-                      return () => clearTimeout(timer);
-                    }}
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 20 20" 
+                    fill="currentColor" 
+                    className={`size-5 transition-transform ${openServices ? 'rotate-180' : ''}`}
                   >
-                    <div className="rounded-xl bg-white shadow-soft border border-slate-100 p-2 overflow-hidden">
-                      <NavLink to="/services/domain-hosting" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`}>ডোমেইন ও হোস্টিং</NavLink>
-                      <NavLink to="/services/web-development" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`}>ওয়েবসাইট ডেভেলপমেন্ট</NavLink>
-                      <NavLink to="/services/landing-page" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`}>ল্যান্ডিং পেজ</NavLink>
-                      <NavLink to="/services/ecommerce" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`}>ই-কমার্স সল্যুশন</NavLink>
-                      <NavLink to="/services/facebook-marketing" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`}>ফেসবুক মার্কেটিং</NavLink>
-                    </div>
+                    <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.186l3.71-3.955a.75.75 0 111.08 1.04l-4.24 4.52a.75.75 0 01-1.08 0l-4.24-4.52a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+                  </svg>
+                </button>
+                {openServices && (
+                  <div className="absolute left-0 mt-3 w-64 rounded-xl bg-white shadow-soft border border-slate-100 p-2 z-20">
+                    <NavLink to="/services/domain-hosting" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`} onClick={() => setOpenServices(false)}>ডোমেইন ও হোস্টিং</NavLink>
+                    <NavLink to="/services/web-development" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`} onClick={() => setOpenServices(false)}>ওয়েবসাইট ডেভেলপমেন্ট</NavLink>
+                    <NavLink to="/services/landing-page" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`} onClick={() => setOpenServices(false)}>ল্যান্ডিং পেজ</NavLink>
+                    <NavLink to="/services/ecommerce" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`} onClick={() => setOpenServices(false)}>ই-কমার্স সল্যুশন</NavLink>
+                    <NavLink to="/services/facebook-marketing" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`} onClick={() => setOpenServices(false)}>ফেসবুক মার্কেটিং</NavLink>
                   </div>
                 )}
               </li>
