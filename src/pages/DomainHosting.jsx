@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const hostingPlans = [
   { title: '১ বছর / 1GB', features: ['ডোমেইন নাম', '৩টি ওয়েবসাইট', '২০ GB SSD', '৩০ মেইলবক্স', 'অটো ব্যাকআপ', 'AI ওয়েবসাইট বিল্ডার', 'AI টুলস'], price: '৳ ১,৫০০/বছর' },
@@ -24,6 +24,15 @@ export default function DomainHosting() {
   const [results, setResults] = useState([])
   const [error, setError] = useState('')
   const [selectedSection, setSelectedSection] = useState(null)
+  
+  const domainSectionRef = useRef(null)
+  const hostingSectionRef = useRef(null)
+  
+  const scrollToSection = (sectionRef) => {
+    if (sectionRef && sectionRef.current) {
+      sectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
 
   async function checkRDAP(domain) {
     try {
@@ -58,7 +67,7 @@ export default function DomainHosting() {
   return (
     <div className="">
       {/* Hero */}
-      <section className="bg-[var(--brand-bg)] py-12 md:py-16">
+      <section className="bg-[var(--brand-bg)] py-12 md:py-12">
         <div className="container-max text-center">
           <h1 className="text-3xl md:text-5xl font-extrabold text-[var(--brand-text)]">
             নিচ থেকে সার্ভিস সিলেক্ট করুন — ডোমেইন ও হোস্টিং
@@ -70,11 +79,17 @@ export default function DomainHosting() {
       </section>
 
       {/* Main Selection Options */}
-      <section className="py-10 md:py-16">
+      <section className="py-2 md:py-6">
         <div className="container-max">
           <div className="max-w-2xl mx-auto grid grid-cols-2 gap-6">
             <button 
-              onClick={() => setSelectedSection(selectedSection === 'domain' ? null : 'domain')}
+              onClick={() => {
+                const newSection = selectedSection === 'domain' ? null : 'domain';
+                setSelectedSection(newSection);
+                if (newSection === 'domain') {
+                  setTimeout(() => scrollToSection(domainSectionRef), 100);
+                }
+              }}
               className={`section-toggle-button aspect-square flex flex-col items-center justify-center p-8 rounded-xl text-center transition-all ${
                 selectedSection === 'domain' 
                   ? 'bg-[var(--brand-accent)] text-white shadow-lg scale-105' 
@@ -88,7 +103,13 @@ export default function DomainHosting() {
             </button>
 
             <button 
-              onClick={() => setSelectedSection(selectedSection === 'hosting' ? null : 'hosting')}
+              onClick={() => {
+                const newSection = selectedSection === 'hosting' ? null : 'hosting';
+                setSelectedSection(newSection);
+                if (newSection === 'hosting') {
+                  setTimeout(() => scrollToSection(hostingSectionRef), 100);
+                }
+              }}
               className={`section-toggle-button aspect-square flex flex-col items-center justify-center p-8 rounded-xl text-center transition-all ${
                 selectedSection === 'hosting' 
                   ? 'bg-[var(--brand-accent)] text-white shadow-lg scale-105' 
@@ -107,7 +128,7 @@ export default function DomainHosting() {
 
       {/* Conditionally Show Selected Content */}
       {selectedSection === 'hosting' && (
-        <section id="hosting" className="section-fade-in py-10 md:py-12">
+        <section id="hosting" ref={hostingSectionRef} className="section-fade-in py-10 md:py-12">
           <div className="container-max">
             <h2 className="text-center text-3xl md:text-4xl font-bold mb-8">হোস্টিং প্যাকেজ</h2>
             <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -132,7 +153,7 @@ export default function DomainHosting() {
       )}
 
       {selectedSection === 'domain' && (
-        <section id="domain" className="section-fade-in py-10 md:py-12">
+        <section id="domain" ref={domainSectionRef} className="section-fade-in py-10 md:py-12">
           <div className="container-max">
             <div className="bg-white rounded-xl shadow-soft p-6 md:p-8">
               <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">ডোমেইন সার্চ করুন</h2>
