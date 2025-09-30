@@ -379,35 +379,35 @@ const [query, setQuery] = useState('')
         <div className="container-max">
           <div className="bg-white rounded-xl shadow-soft p-6  md:p-8">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
-              Why smecube
+              কেন এসএমই কিউব
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-white rounded-xl shadow-soft p-8 flex flex-col items-center transition-colors duration-300 hover:bg-[#ed2849] hover:text-white">
                 <img
                   src="/SME-Cube-logo.png"
-                  alt="24/7 Customer Service"
+                  alt="২৪/৭ গ্রাহক সেবা"
                   className="w-20 h-20 mb-4 object-contain"
                 />
-                <h3 className="text-xl font-semibold mb-2 text-center">24/7 Customer Service</h3>
-                <p className="text-center">Get help and advice from our Support Team whenever you need it. Whether you’re searching for a domain name, checking its availability, or registering it and beyond, our friendly experts are here for you every step of the way.</p>
+                <h3 className="text-xl font-semibold mb-2 text-center">২৪/৭ গ্রাহক সেবা</h3>
+                <p className="text-center">আমাদের সাপোর্ট টিম থেকে যেকোনো সময় সাহায্য ও পরামর্শ নিন। আপনি ডোমেইন নাম খোঁজা, এর উপলব্ধতা যাচাই, রেজিস্টার করা বা অন্য যে কোনো প্রয়োজনে আমাদের বন্ধুত্বপূর্ণ বিশেষজ্ঞরা সর্বদা আপনার পাশে আছেন।</p>
               </div>
               <div className=" rounded-xl shadow-soft p-8 flex flex-col items-center transition-colors duration-300 hover:bg-[#ed2849] hover:text-white">
                 <img
                   src="/vite.svg"
-                  alt="Privacy and Security"
+                  alt="গোপনীয়তা এবং নিরাপত্তা"
                   className="w-20 h-20 mb-4 object-contain"
                 />
-                <h3 className="text-xl font-semibold mb-2 text-center">Privacy and Security</h3>
-                <p className="text-center">Your website security and privacy come first at Namecheap, and we will always support the rights of individuals and consumers online. It’s our mission to keep the Internet open, free, and safe for everyone.</p>
+                <h3 className="text-xl font-semibold mb-2 text-center">গোপনীয়তা এবং নিরাপত্তা</h3>
+                <p className="text-center">এসএমই কিউবে আপনার ওয়েবসাইটের নিরাপত্তা ও গোপনীয়তা সর্বোচ্চ অগ্রাধিকার পায়, এবং আমরা সর্বদা অনলাইনে ব্যক্তি ও গ্রাহকদের অধিকার সমর্থন করি। আমাদের লক্ষ্য ইন্টারনেট খোলা, মুক্ত এবং সবার জন্য নিরাপদ রাখা।</p>
               </div>
               <div className="bg-white rounded-xl shadow-soft p-8 flex flex-col items-center transition-colors duration-300 hover:bg-[#ed2849] hover:text-white">
                 <img
                   src="/src/assets/react.svg"
-                  alt="Your Business Online"
+                  alt="আপনার ব্যবসা অনলাইনে"
                   className="w-20 h-20 mb-4 object-contain"
                 />
-                <h3 className="text-xl font-semibold mb-2 text-center">Your Business Online</h3>
-                <p className="text-center">Once you’ve checked your domain name availability and secured your domain, it’s time to boost your business with industry-premium products and services at prices that won’t break your budget. If it doesn’t provide you with a better Internet experience, we don’t offer it.</p>
+                <h3 className="text-xl font-semibold mb-2 text-center">আপনার ব্যবসা অনলাইনে</h3>
+                <p className="text-center">আপনি একবার ডোমেইন নাম উপলব্ধতা যাচাই করে নিজের ডোমেইন সুরক্ষিত করার পর, আপনার ব্যবসাকে আরও এগিয়ে নিতে শিল্প-প্রিমিয়াম পণ্য ও সেবাসমূহ সাশ্রয়ী মূল্যে পেতে পারেন। আমরা কেবল সেই সেবাগুলিই অফার করি যা আপনাকে একটি উন্নত ইন্টারনেট অভিজ্ঞতা প্রদান করে।</p>
               </div>
             </div>
           </div>
