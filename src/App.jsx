@@ -4,6 +4,7 @@ import DomainHosting from './pages/DomainHosting'
 import WebDevelopment from './pages/WebDevelopment'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import ServiceProviders from './components/ServiceProviders'
 
 function Placeholder({ title }) {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route path="*" element={<Navigate to="/services/domain-hosting" replace />} />
           </Routes>
         </main>
+        <ServiceProviders />
         <Footer />
       </div>
     </BrowserRouter>
