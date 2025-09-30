@@ -14,14 +14,14 @@ export default function Header() {
     <header className="sticky top-0 z-50">
       {/* Top bar */}
       <div className="bg-[var(--brand-bg)]/95 backdrop-blur border-b border-white/70">
-        <div className="container-max grid grid-cols-[auto_1fr_auto] items-center gap-6 py-5">
+        <div className="container-max flex justify-between items-center py-5">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
+          <Link to="https://smecube.com/" className="flex items-center gap-2">
             <img src="/SME-Cube-logo.png" alt="SME CUBE" className="h-9" />
           </Link>
 
           {/* Center Nav (desktop) */}
-          <nav className="hidden md:flex justify-center">
+          <nav className="hidden md:flex justify-center flex-1">
             <ul className="flex items-center gap-12 text-[var(--brand-accent)] font-bold text-lg">
               <li className="relative">
                 <NavLink to="/" className={navLinkBase} end>
