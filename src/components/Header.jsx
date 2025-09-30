@@ -39,6 +39,7 @@ export default function Header() {
                   <div className="absolute left-0 mt-3 w-64 rounded-xl bg-white shadow-soft border border-slate-100 p-2">
                     <NavLink to="/services/domain-hosting" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`}>ডোমেইন ও হোস্টিং</NavLink>
                     <NavLink to="/services/web-development" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`}>ওয়েবসাইট ডেভেলপমেন্ট</NavLink>
+                    <NavLink to="/services/landing-page" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`}>ল্যান্ডিং পেজ</NavLink>
                     <NavLink to="/services/ecommerce" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`}>ই-কমার্স সল্যুশন</NavLink>
                     <NavLink to="/services/facebook-marketing" className={({ isActive }) => `flex items-center justify-between px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)] text-[var(--brand-text)]' : 'hover:bg-slate-50'}`}>ফেসবুক মার্কেটিং</NavLink>
                   </div>
@@ -78,6 +79,7 @@ export default function Header() {
               <div className="mt-1 pl-3 space-y-1">
                 <NavLink to="/services/domain-hosting" className="block px-3 py-2 rounded-lg hover:bg-slate-50" onClick={() => setMobileOpen(false)}>ডোমেইন ও হোস্টিং</NavLink>
                 <NavLink to="/services/web-development" className="block px-3 py-2 rounded-lg hover:bg-slate-50" onClick={() => setMobileOpen(false)}>ওয়েবসাইট ডেভেলপমেন্ট</NavLink>
+                <NavLink to="/services/landing-page" className="block px-3 py-2 rounded-lg hover:bg-slate-50" onClick={() => setMobileOpen(false)}>ল্যান্ডিং পেজ</NavLink>
                 <NavLink to="/services/ecommerce" className="block px-3 py-2 rounded-lg hover:bg-slate-50" onClick={() => setMobileOpen(false)}>ই-কমার্স সল্যুশন</NavLink>
                 <NavLink to="/services/facebook-marketing" className="block px-3 py-2 rounded-lg hover:bg-slate-50" onClick={() => setMobileOpen(false)}>ফেসবুক মার্কেটিং</NavLink>
               </div>
