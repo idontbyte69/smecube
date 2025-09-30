@@ -39,7 +39,7 @@ export default function Header() {
           <nav className="hidden md:flex justify-center flex-1">
             <ul className="flex items-center gap-12 text-[var(--brand-accent)] font-bold text-lg">
               <li className="relative">
-                <NavLink to="/" className={navLinkBase} end>
+                <NavLink to="https://smecube.com/" className={navLinkBase} end>
                   {({ isActive }) => (
                     <span className="relative inline-block">হোম{isActive && activeUnderline}</span>
                   )}
@@ -105,7 +105,7 @@ export default function Header() {
       {mobileOpen && (
         <div className="md:hidden bg-white border-b border-slate-200">
           <div className="container-max py-4 space-y-2">
-            <NavLink to="/" className={({ isActive }) => `block px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)]' : 'hover:bg-slate-50'}`} onClick={() => setMobileOpen(false)}>হোম</NavLink>
+            <NavLink to="https://smecube.com/" className={({ isActive }) => `block px-3 py-2 rounded-lg ${isActive ? 'bg-[var(--brand-bg)]' : 'hover:bg-slate-50'}`} onClick={() => setMobileOpen(false)}>হোম</NavLink>
             <details className="group">
               <summary className="px-3 py-2 cursor-pointer rounded-lg hover:bg-slate-50 flex items-center justify-between">
                 <span>সার্ভিস</span>
