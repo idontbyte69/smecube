@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Clean the dist directory if it exists
+echo "Cleaning previous build..."
+if [ -d "dist" ]; then
+  rm -rf dist
+fi
+
 # Build the React application
 echo "Building React application..."
 npm run build
@@ -15,6 +21,11 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-l
 RewriteRule . /index.html [L]
 EOL
+
+# Remove any existing zip file
+if [ -f "smecube-build.zip" ]; then
+  rm smecube-build.zip
+fi
 
 # Create a zip file for easy upload
 echo "Creating zip file..."
