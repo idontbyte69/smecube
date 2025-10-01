@@ -205,14 +205,32 @@ export default function BulkSMS() {
   }
 
   const calculateSavings = (plan) => {
-    const monthly = parseFloat(plan.monthlyPrice.replace('৳ ', '').replace(/,/g, ''))
-    const yearly = parseFloat(plan.yearlyPrice.replace('৳ ', '').replace(/,/g, ''))
+    // Clean and convert Bengali numerals to English numerals if needed
+    const cleanPrice = (price) => {
+      return price.replace('৳ ', '')
+                  .replace(/,/g, '')
+                  .replace(/০/g, '0')
+                  .replace(/১/g, '1')
+                  .replace(/২/g, '2')
+                  .replace(/৩/g, '3')
+                  .replace(/৪/g, '4')
+                  .replace(/৫/g, '5')
+                  .replace(/৬/g, '6')
+                  .replace(/৭/g, '7')
+                  .replace(/৮/g, '8')
+                  .replace(/৯/g, '9')
+    }
+    
+    const monthly = parseFloat(cleanPrice(plan.monthlyPrice))
+    const yearly = parseFloat(cleanPrice(plan.yearlyPrice))
     
     if (isNaN(monthly) || isNaN(yearly) || monthly <= 0) {
       return 0
     }
     
-    const savings = Math.round(((monthly * 12) - yearly) / (monthly * 12) * 100)
+    const totalMonthlyYearly = monthly * 12
+    const savings = Math.round(((totalMonthlyYearly - yearly) / totalMonthlyYearly) * 100)
+    
     return Math.max(0, savings) // Ensure non-negative
   }
 
